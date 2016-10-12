@@ -71,7 +71,7 @@ First we check the time with `ofGetElapsedTimeMillis()` and compare that with th
 ```C++
 if (!TCP.isClientConnected(i)) continue;
 ```
-If the client isn't connected, we skip that TCP connection and continue to check the next one. The next few lines are pretty self descriptive. The server reads the TCP message to a string with `TCP.recieve(i);` The server then finally echos the message into the console with `std::cout << "Recieved: " << str << "\n";`. Then, for the bow on top, the server sends back the message to the client.
+If the client isn't connected, we skip that TCP connection and continue to check the next one. The next few lines are pretty self descriptive. The server reads the TCP message to a string with `TCP.recieve(i);` The server then finally echos the message into the console with `std::cout << "Recieved: " << str << "\n";`. Then, for the bow on top, the server sends back the message to the client with `TCP.send(i, "You sent: " + str);`.
 
 ### Client
 
