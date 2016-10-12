@@ -27,3 +27,9 @@ To check if we successfuly created the branch you can run the following:
 git branch
 ```
 
+it should list something like the following:
+
+```bash
+	master
+*	<branch name>
+```
