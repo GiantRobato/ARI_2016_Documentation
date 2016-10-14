@@ -7,3 +7,4 @@ More info to come
 * Programming Team
 	* Dustin Mendoza
 	* Trevor Sprague
+	* Heather Lindsey
