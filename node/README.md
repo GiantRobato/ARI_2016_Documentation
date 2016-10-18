@@ -65,4 +65,62 @@ For more info on how to use nodejs look [here](http://blog.modulus.io/build-your
 
 ## TCP
 
-http has a lot of overhead so instead of simply creating an http server, we're going to reduce this by using a TCP server. Some helpful info on how to do this is [here](http://blog.yld.io/2016/02/23/building-a-tcp-service-using-node-js/#.V_5vaPkrJhE) 
+http has a lot of overhead so instead of simply creating an http server, we're going to reduce this by using a TCP server. Some helpful info on how to do this is [here](http://blog.yld.io/2016/02/23/building-a-tcp-service-using-node-js/#.V_5vaPkrJhE) and [here](http://www.hacksparrow.com/tcp-socket-programming-in-node-js.html).
+
+The sample code below (described in detail in one of the tutorials described above) will echo any TCP message sent to it. To install, create a file called `nodeEcho.js` and put the following code:
+
+```js
+//Credit goes to Pedro Teixeira for this example code 
+//See http://blog.yld.io/2016/02/23/building-a-tcp-service-using-node-js/#.V_7nM_krJhF
+var net = require('net');
+
+var server = net.createServer();  
+server.on('connection', handleConnection);
+
+server.listen(9000, function() {  
+  console.log('server listening to %j', server.address());
+});
+
+function handleConnection(conn) {  
+  var remoteAddress = conn.remoteAddress + ':' + conn.remotePort;
+  console.log('new client connection from %s', remoteAddress);
+
+  conn.on('data', onConnData);
+  conn.once('close', onConnClose);
+  conn.on('error', onConnError);
+
+  function onConnData(d) {
+    console.log('connection data from %s: %j', remoteAddress, d);
+    conn.write(d);
+  }
+
+  function onConnClose() {
+    console.log('connection from %s closed', remoteAddress);
+  }
+
+  function onConnError(err) {
+    console.log('Connection %s error: %s', remoteAddress, err.message);
+  }
+}
+```
+
+and run it with:
+
+```bash
+node recFromOther.js
+```
+
+Then we can use netcat (part of the nmap network tools suite, in my case I installed it using the windows setup executable found [here](https://nmap.org/download.html)) and send messages using:
+
+```bash
+ncat 169.254.108.68 9000
+```
+
+You should see that we have a connection now between the client and server from the output log of the server.
+
+![Node Echo Server Client Connection](./nodeEchoServerOutput1.JPG "Node echo server client connection")
+
+Now if we type something into our terminal and hit `enter`, we get an echo back of what we sent! We can also see that the server has properly recieved the data as well.
+
+![Node Echo Server Client Echo](./nodeEchoServerOutput2.JPG "Node echo server client echo")
+![Netcat Echo View](./nodeEchoServerOutput3.JPG "Netcat echo view")
