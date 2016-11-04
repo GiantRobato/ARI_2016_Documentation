@@ -15,11 +15,18 @@ sudo apt-get install imagemagick
 sudo apt-get install subversion
 ```
 
-After everything gets installed we need to get a copy of mjpg-streamer.
+After everything gets installed we need to get a copy of mjpg-streamer and apply a patch.
 
 ```bash
 svn co https://svn.code.sf.net/p/mjpg-streamer/code/mjpg-streamer
 cd mjpg-streamer
+```
+
+unfortunately, we also need to patch mjpg-streamer. Use the following:
+
+```bash
+wget https://raw.githubusercontent.com/penguindustin/ARI_2016_Documentation/development/mjpeg-streamer/input_uvc_patch.txt
+patch -p0 < input_uvc_patch
 make USE_LIBV4L2=true
 ```
 
