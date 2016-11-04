@@ -26,7 +26,7 @@ unfortunately, we also need to patch mjpg-streamer. Use the following:
 
 ```bash
 wget https://raw.githubusercontent.com/penguindustin/ARI_2016_Documentation/development/mjpeg-streamer/input_uvc_patch.txt
-patch -p0 < input_uvc_patch
+patch -p0 < input_uvc_patch.txt
 make USE_LIBV4L2=true
 ```
 
