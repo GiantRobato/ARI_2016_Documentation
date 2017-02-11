@@ -26,4 +26,3 @@ Sent data
 ```
 
 over and over. The server is echoing back anything that is sent to it. Since the joysticks aren't moved, it is sending `0.000000 0.000000`. Moving the joysticks in the Y-axis, changes these values between -1 and 1 (as shown in the title card).
-
