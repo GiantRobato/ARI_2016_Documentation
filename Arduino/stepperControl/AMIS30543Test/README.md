@@ -1,12 +1,14 @@
 # AMIS30543 Stepper Motor Test
 
+![motor Controller](imgs/AMIS_30543.jpg)
+
 Runs the stepper motor straight from the arduino and a power supply. The product page for the AMIS can be found here: https://www.pololu.com/product/2970
 
 ## Stepper Controller and motor
 
-![motor Controller](imgs/AMIS_30543.jpg)
-
 The stepper controller excites the two coils in the motor thereby "stepping" by a certain number of degrees (denoted by the motor itself and it's gearing). Using the diagram above, the following wires were connected:
+
+![motor Controller Pinout](imgs/AMIS_30543_Pinout.jpg)
 
 | Stepper Controller | Stepper Motor |
 | ------------------ | ------------- |
@@ -15,7 +17,9 @@ The stepper controller excites the two coils in the motor thereby "stepping" by 
 | MOTYP              | C             |
 | MOTYN              | D             |
 
-(NOTES: DC+ and DC- are connected to the battery driving the stepper motors, you can view the motor wire designations in the imgs folder under stepperWiring)
+(NOTE 1: DC+ and DC- are connected to the battery driving the stepper motors)
+(NOTE 2: For stepper motor wire lettering, see stepperWiring in imgs)
+
 
 ## Arduino control
 
