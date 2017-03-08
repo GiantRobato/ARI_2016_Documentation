@@ -4,7 +4,6 @@ Runs the stepper motor straight from the arduino and a power supply. The product
 
 ## Stepper Controller and motor
 
-![motor](imgs/stepperWiring.jpg)
 ![motor Controller](imgs/AMIS_30543.jpg)
 
 The stepper controller excites the two coils in the motor thereby "stepping" by a certain number of degrees (denoted by the motor itself and it's gearing). Using the diagram above, the following wires were connected:
@@ -16,11 +15,11 @@ The stepper controller excites the two coils in the motor thereby "stepping" by 
 | MOTYP              | C             |
 | MOTYN              | D             |
 
-(note, DC+ and DC- are connected to the battery driving the stepper motors)
+(NOTES: DC+ and DC- are connected to the battery driving the stepper motors, you can view the motor wire designations in the imgs folder under stepperWiring)
 
 ## Arduino control
 
-![arduino pro mini](imgs/arduinoProMini.png)
+(NOTE: you can view the pins for the arduino in the imgs folder)
 
 | Stepper Controller | Arduino       |
 | ------------------ | ------------- |
