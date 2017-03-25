@@ -19,7 +19,25 @@ Simply create a new project and replace the src code with the srcs provided. (No
 
 ## Usage
 
-First, run the python server on the rover. Then, run the client project. After a TCP connection is established between the client and server, the client should be sending out the joystick values.
+To run the system we first have to start the appropriate server on the TK1 and then start the client program on the ground station.
+
+1 - Run Controller2JoyTest.py
+=============================
+
+On the TK1 run the following:
+
+```bash
+sudo python Controller2JoyTest.py
+```
+
+This should start a server that waits for TCP messages from the ground station with input from the gamepad.
+
+2 - Run the Ground Station Client
+=================================
+
+On the ground station, run the openframeworks program that implements the TwoJoystickTest source code.
+
+## Code Notes
 
 - [ ] TODO - insert values read and conversions (e.g. -1 to 1 to 0 to 255 etc.)
 
